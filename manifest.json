@@ -1,0 +1,42 @@
+{
+  "manifest_version": 2,
+  "name": "Linked Data Comments",
+  "version": "1.0",
+
+  "description": "Enables users to comment on any page they want.",
+
+  "icons": {
+    "64": "icons/comment-bubble.png"
+  },
+
+  "permissions": [
+    "tabs",
+    "<all_urls>"
+  ],
+
+  "applications": {
+    "gecko": {
+      "strict_min_version": "55.0a2"
+    }
+  },
+
+  "browser_action": {
+    "default_icon": {
+     "64" : "icons/comment-bubble.png"
+    },
+    "default_title": "Linked Data Comments",
+    "default_popup":"popup.html"
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["solid-client.js", "rdflib-0.12.2.min.js", "ldcomments.js"]
+    }
+  ]
+
+}
